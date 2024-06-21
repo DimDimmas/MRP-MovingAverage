@@ -121,7 +121,7 @@
   $(document).ready(function(){
     function simpleMovingAverage(){
       var periode = $('#periode').val();
-      var data = JSON.parse(localStorage.getItem('data'));
+      var data = JSON.parse(sessionStorage.getItem('data'));
 
       // tahun.sort(function(a, b) {
       //   return a - b;
@@ -213,7 +213,7 @@
 
     function weightedMovingAverage(){
       var periode = $('#periode').val();
-      var data = JSON.parse(localStorage.getItem('data'));
+      var data = JSON.parse(sessionStorage.getItem('data'));
 
       // tahun.sort(function(a, b) {
       //   return a - b;
@@ -310,7 +310,7 @@
       var penjualan = $('#formAdd #penjualan').val();
 
       var arr = [];
-      var arr_data = JSON.parse(localStorage.getItem('data'));
+      var arr_data = JSON.parse(sessionStorage.getItem('data'));
       if(arr_data !== null){
         arr_data.forEach(val => {
           arr.push(val);
@@ -318,8 +318,8 @@
       }
       var str = (tahun+';;'+penjualan);
       arr.push(str);
-      localStorage.removeItem('data');
-      localStorage.setItem('data', JSON.stringify(arr));
+      sessionStorage.removeItem('data');
+      sessionStorage.setItem('data', JSON.stringify(arr));
 
       $('#modalAddRow').modal('hide')
 
